@@ -70,8 +70,8 @@
 //     console.log('Good bye');
 // }
 
-const TRUE_PASSWORD = '12345678';
-const TRUE_NAME = 'Nyatin';
+// const TRUE_PASSWORD = '12345678';
+// const TRUE_NAME = 'Nyatin';
 
 const user = {
     name: 'Nyatin',
@@ -79,3 +79,10 @@ const user = {
     password: '12345678'
 };
 
+user.name = 'Dmitriy'
+
+console.log(user.name);
+user.name = 'Dmitriy';
+console.log(user.name);
+user.age = 12;
+console.log(user);
