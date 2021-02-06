@@ -29,6 +29,12 @@
 
 // console.log(arr);
 
+/**
+ * 
+ * @param obj Функция принимает любое значение в том числе и объект
+ *            и превращает его в строковый вид
+ */
+
 const print = (obj) => JSON.stringify(obj, null, 2);
 
 let salaries = [1000, 500, 200, 300, 400];
