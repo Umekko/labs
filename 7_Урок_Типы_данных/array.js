@@ -1,64 +1,39 @@
-// let stack = [];
-// stack.push(1);
-// console.log(stack);
-// stack.push(2);
-// console.log(stack);
-// stack.push(3);
-// console.log(stack);
+let salaries = [5000, 1000, 3000];
 
-// console.log(stack.pop());
-// console.log(stack);
+let totalSum = 0;
 
-// let arr = [1, 2, 3, 4, 5];
-
-// console.log(arr.reverse());
-
-// console.log(arr);
-
-// console.log(arr.join(' ')); //
-
-// console.log(arr);
-
-// let arr = [1, 2, 3];
-
-// arr.unshift(0);
-
-// console.log(arr);
-
-// arr.shift();
-
-// console.log(arr);
-
-/**
- * 
- * @param obj Функция принимает любое значение в том числе и объект
- *            и превращает его в строковый вид
- */
-
-const print = (obj) => JSON.stringify(obj, null, 2);
-
-let salaries = [1000, 500, 200, 300, 400];
-
-let updatedSalaries = salaries.filter(function(salary) {
-    return salary > 400;
+salaries.forEach(function (salary) {
+	totalSum += salary;
 });
 
-console.log(updatedSalaries);
+console.log(totalSum);
 
-// salaries.forEach(function(value) {
-//     console.log(value + 200);
-// });
+let updateSalaries = salaries.map(function (salary) {
+	return {
+		oldSalary: salary,
+		newSalary: salary - 500,
+	};
+});
 
-// let updatedSalaries = salaries.map(function(salary) {
-//     return salary + 100;
-// });
+// console.log(updateSalaries);
 
+const markets = [
+	{
+		name: 'Sela',
+		sales: 10,
+	},
+	{
+		name: 'BrandMix',
+		sales: 20,
+	},
+	{
+		name: 'Optima Market',
+		sales: 50,
+	}
+];
 
+let bestMarkets = markets.filter(function(market) {
+    return market.sales > 10;
+});
 
-console.log('Старые зарплаты: ' + salaries);
-console.log('Новые зарплаты: ' + print(updatedSalaries));
-
-// let updatedSalaries = salaries.map(function(value) {
-//     return value
-// });
-
+console.log(bestMarkets);
