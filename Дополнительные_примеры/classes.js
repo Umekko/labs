@@ -41,3 +41,36 @@ homosapines.whoAmI();
 // const admin = new User('John');
 // admin.changeName('Petr');
 // admin.getName();
+
+
+function Machine() {
+	this.powered = false;
+
+	this.on = function() {
+		this.powered = true;
+		console.log('Машина включена');
+	}
+	this.off = function() {
+		this.powered = false;
+		console.log('Машина выключена');
+	}
+}
+
+function CoffeeMachine(model) {
+	Machine.call(this);
+	CoffeeMachine.prototype = Machine.prototype;
+	
+	this.model = model;
+	this.getModel = function() {
+		console.log(this.model);
+		return this.model;
+	}
+};
+
+const coffeeMachine = new CoffeeMachine('mark2');
+
+coffeeMachine.getModel();
+coffeeMachine.on();
+coffeeMachine.off();
+
+console.log(coffeeMachine.__proto__);
