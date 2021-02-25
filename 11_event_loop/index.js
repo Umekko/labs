@@ -52,13 +52,13 @@ loadFiles(5)
     .catch(errorMessage => {
         console.log(errorMessage);
     });
-// console.log('Синхроныый код');
+console.log('Синхроныый код');
 
-// loadFiles
-//     .then(v => console.log('Then', v))
-//     .catch(v => console.log('Catch', v))
-//     .finally(() => {
-//         console.log("Выполнюсь в любом случае")
-//     })
+loadFiles
+    .then(v => console.log('Then', v))
+    .catch(v => console.log('Catch', v))
+    .finally(() => {
+        console.log("Выполнюсь в любом случае")
+    })
 
-// console.log('Какая другая синхронная операция');
+console.log('Какая другая синхронная операция');
