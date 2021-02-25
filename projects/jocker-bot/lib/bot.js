@@ -1,5 +1,5 @@
 const { Telegraf } = require('telegraf');
-const token = '1602796699:AAEIdUHolDTEIKYb5uxiyqXtuN8W4Xgc_VU';
+const token = 'f602796699:AAEIdUHolDTEIKYb5uxiyqXtuN8W4Xgc_VU';
 const bot = new Telegraf(token);
 const jokes = ['Шутка 1', 'Шутка 2', 'Шутка 3'];
 
