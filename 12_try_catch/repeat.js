@@ -2,7 +2,6 @@ console.log('Начало скрипта');
 
 try {
 	console.log('Действие 1');
-
 	throw 'Падение скрипта!!';
 } catch (error) {
 	console.log('Ошибка: ', error);
@@ -16,12 +15,17 @@ function request() {
 			code: 500,
 		};
 	} catch (e) {
-		console.log('Ошибка', e);
+        console.log('Внутренний блок catch', e);
+        throw e;
 	} finally {
 		console.log('block finnaly');
 	}
 }
 
-request();
+try {
+    request();
+} catch (e) {
+    console.log('Внешний catch поймал ошибку', e);
+}
 
 console.log('Конец скрипта');
