@@ -1,22 +1,18 @@
-const { DATABASE_NEWS } = require('../database/db');
+const { News } = require('../models/news');
 
-exports.getNews = async (request, response) => {
+exports.getNews = async (req, res) => {
 	try {
-		const lang = request.headers.language; // ru
-
-		const fiteredNews = DATABASE_NEWS.filter((n) => {
-			return n.lang === lang;
-		});
-
-		response.status(200).json(fiteredNews);
+        const allNews = await News.find();
+        
+		res.status(200).json(allNews);
 	} catch (e) {
-		response.status(500).json(e.message);
+		res.status(500).json(e.message);
 	}
 }
 
 exports.getOneNews = async (req, res) => {
     try {
-        const news = DATABASE_NEWS.find(news => news.id === req.params.newsId);
+        const news = await News.findById(req.params.newsId);
         
         if (!news) {
             return res.status(404).json('Новость не найдена')
@@ -32,15 +28,15 @@ exports.getOneNews = async (req, res) => {
 exports.createNews = async (req, res) => {
 	try {
         const news = req.body;
-        news.date = new Date();
-
-        DATABASE_NEWS.push(news);
-
+        const createdNews = await News.create(news);
+        
         res.status(201).json({
             message: 'Новость создана',
-            allNews: DATABASE_NEWS
+            news: createdNews
         });
 	} catch (e) {
-
+        res.status(500).json({
+            message: e.message
+        });
     }
 }
