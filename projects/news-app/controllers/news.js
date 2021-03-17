@@ -40,3 +40,6 @@ exports.createNews = async (req, res) => {
         });
     }
 }
+
+exports.deleteNews = async (req, res) => {}
+exports.updateNews = async (req, res) => {}
