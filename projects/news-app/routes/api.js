@@ -9,6 +9,6 @@ router.post('/create-news', createNews);
 // Удаление одной новости
 router.delete('/news/:newsId', deleteNews);
 // Обновление одной новости
-router.patch('/news/:newsId', updateNews);
+router.post('/news/:newsId', updateNews);
 
 exports.router = router;

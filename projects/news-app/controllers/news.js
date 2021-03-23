@@ -28,8 +28,14 @@ exports.getOneNews = async (req, res) => {
 exports.createNews = async (req, res) => {
 	try {
         const news = req.body;
-        const createdNews = await News.create(news);
+
+        console.log(news);
         
+        const createdNews = await News.create({
+            title: news.title,
+            content: news.content
+        });
+
         res.status(201).json({
             message: 'Новость создана',
             news: createdNews
@@ -42,4 +48,27 @@ exports.createNews = async (req, res) => {
 }
 
 exports.deleteNews = async (req, res) => {}
-exports.updateNews = async (req, res) => {}
+exports.updateNews = async (req, res) => {
+    try {
+        const newsId = req.params.newsId;
+
+        const fieldsToUpdate = req.body; 
+        /**
+         * {
+         *    title: 'Новый тайтл',
+         *    content: 'Новый контент'
+         * }
+         */
+
+        const updatedNews = await News.findByIdAndUpdate(newsId, fieldsToUpdate);
+        await updatedNews.save();
+
+        res.status(201).json({
+            message: 'Новость обновлена',
+            news: updatedNews
+        })
+
+    } catch (e) {
+
+    }
+}
